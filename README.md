@@ -1,30 +1,42 @@
-README для twitter_monitor.py
-Установка
-bashCopypip install requests
-Настройка
+# Twitter Monitor
+Monitors X.com accounts for new tweets and sends SMS notifications.
 
-Откройте twitter_monitor.py
-Заполните данные:
+## Installation
+```bash
+pip install requests
+```
 
-pythonCopySMS_LOGIN = 'ваш_логин_smsc'
-SMS_PASSWORD = 'ваш_пароль_smsc'
-SMS_PHONE = 'ваш_номер'
+## Setup
+1. Edit `twitter_monitor.py`:
+```python
+SMS_LOGIN = 'your_smsc_login'
+SMS_PASSWORD = 'your_smsc_password' 
+SMS_PHONE = 'your_phone'
 
 PROXIES = [
     "http://login:password@ip:port",
-    # добавьте несколько прокси для ротации
+    # add multiple proxies for rotation
 ]
-Запуск
-bashCopypython twitter_monitor.py
-Логи
+```
 
-Все действия записываются в twitter_monitor.log
-Дублируются в консоль
-При ошибках отправляется SMS уведомление
+## Usage
+```bash
+python twitter_monitor.py
+```
 
-Функционал
+## Features
+- Monitors tweets every minute
+- Proxy rotation
+- SMS notifications via smsc.ru
+- Automatic guest token refresh
+- Logging to file and console
+- Error notifications via SMS
 
-Мониторит твиты @mcuban каждую минуту
-Использует ротацию прокси
-Отправляет SMS при новом твите
-Автоматически получает guest token
+## Logs
+All activity logged to `twitter_monitor.log` and console output
+
+## Requirements
+- Python 3.6+
+- requests library
+- smsc.ru account
+- Proxies (recommended)
